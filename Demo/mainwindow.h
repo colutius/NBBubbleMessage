@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMessageBox>
+
+#include "core/nbbubblemessage.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,5 +20,6 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    NBBubbleMessage *bubbleMessage;
 };
 #endif // MAINWINDOW_H
