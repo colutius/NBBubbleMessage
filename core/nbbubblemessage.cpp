@@ -5,17 +5,36 @@ NBBubbleMessage::NBBubbleMessage(QWidget *parent) : QWidget(parent)
     //默认背景颜色
     this->setAttribute(Qt::WA_StyledBackground);//设置为背景样式可调
     this->setAutoFillBackground(true);//设置自动填充背景
+    //this->setStyleSheet("background-color: black");
 }
 
 /**
  * 背景初始化
  * @brief NBBubbleMessage::messageInit
+ * @param nbbm NotSet不设置任何参数 SetQss设置QSS样式 SetImage设置背景图片路径(char*)
+ * @param content所需参数
  */
-void NBBubbleMessage::messageInit(QString qss)
+void NBBubbleMessage::messageInit(NBBM nbbm, QString content)
 {
-    if (qss != NULL)
+    switch (nbbm)
     {
-        this->setStyleSheet(qss);
+    case NBBM::SetQss: this->setStyleSheet(content);break;
+    case NBBM::SetImage:
+    {
+        char * imagePath;
+        #ifdef __WIN32
+        //windows转换方式转接GBK中文
+        QTextCodec::setCodecForLocale(QTextCodec::codecForName("GBK"));
+        QByteArray byte = content.toLocal8Bit();  // toLocal8Bit 支持中文
+        imagePath=byte.data();
+        #else
+        //unix通用转换方式
+        #endif
+        this->setBackgroundImage(imagePath);
+        qDebug() << this->backgroundImagePath;
+        break;
+    }
+    case NBBM::NotSet: return;
     }
 }
 
@@ -26,11 +45,11 @@ void NBBubbleMessage::messageInit(QString qss)
  */
 void NBBubbleMessage::setBackgroundImage(char* imagePath)
 {
+    this->setStyleSheet("");
     this->backgroundImagePath = imagePath;
     backgroundImage.load(imagePath);
     backgroundPalette.setBrush(this->backgroundRole(), QBrush(backgroundImage.scaled(this->size())));
     this->setPalette(backgroundPalette);
-    qDebug() << "参数地址" << imagePath;
 }
 
 /**
