@@ -11,29 +11,18 @@ NBBubbleMessage::NBBubbleMessage(QWidget *parent) : QWidget(parent)
 /**
  * 背景初始化
  * @brief NBBubbleMessage::messageInit
- * @param nbbm NotSet不设置任何参数 SetQss设置QSS样式 SetImage设置背景图片路径(char*)
+ * @param nbbm NotSet不设置任何参数 SetQss设置QSS样式(char*) SetImage设置背景图片路径(char*)
  * @param content所需参数
  */
-void NBBubbleMessage::messageInit(NBBM nbbm, QString content)
+void NBBubbleMessage::messageInit(NBBM nbbm, char* content)
 {
     switch (nbbm)
     {
     case NBBM::SetQss: this->setStyleSheet(content);break;
     case NBBM::SetImage:
-    {
-        char * imagePath;
-        #ifdef __WIN32
-        //windows转换方式转接GBK中文
-        QTextCodec::setCodecForLocale(QTextCodec::codecForName("GBK"));
-        QByteArray byte = content.toLocal8Bit();  // toLocal8Bit 支持中文
-        imagePath=byte.data();
-        #else
-        //unix通用转换方式
-        #endif
-        this->setBackgroundImage(imagePath);
+        this->setBackgroundImage(content);
         qDebug() << this->backgroundImagePath;
         break;
-    }
     case NBBM::NotSet: return;
     }
 }
