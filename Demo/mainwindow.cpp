@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->layout->addWidget(bubbleMessage);
     //QMessageBox::information(nullptr, "警告", "程序已经运行", QMessageBox::Yes);
     bubbleMessage->messageInit(NBBM::SetImage, "D:/桌面/wechat.jpg");
+    //bubbleMessage->messageInit(NBBM::NotSet);
 }
 
 MainWindow::~MainWindow()

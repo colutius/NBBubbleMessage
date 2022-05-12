@@ -1,6 +1,6 @@
 #include "nbbubblemessage.h"
 
-NBBubbleMessage::NBBubbleMessage(QWidget *parent) : QWidget(parent)
+NBBubbleMessage::NBBubbleMessage(QListWidget *parent) : QListWidget(parent)
 {
     //默认背景颜色
     this->setAttribute(Qt::WA_StyledBackground);//设置为背景样式可调
@@ -21,9 +21,10 @@ void NBBubbleMessage::messageInit(NBBM nbbm, char* content)
     case NBBM::SetQss: this->setStyleSheet(content);break;
     case NBBM::SetImage:
         this->setBackgroundImage(content);
-        qDebug() << this->backgroundImagePath;
+        qDebug() << "背景图片地址:" <<this->backgroundImagePath;
         break;
-    case NBBM::NotSet: return;
+    case NBBM::NotSet: break;
+    default: return;
     }
 }
 
@@ -34,7 +35,7 @@ void NBBubbleMessage::messageInit(NBBM nbbm, char* content)
  */
 void NBBubbleMessage::setBackgroundImage(char* imagePath)
 {
-    this->setStyleSheet("");
+    //this->setStyleSheet("");
     this->backgroundImagePath = imagePath;
     backgroundImage.load(imagePath);
     backgroundPalette.setBrush(this->backgroundRole(), QBrush(backgroundImage.scaled(this->size())));
@@ -54,6 +55,26 @@ void NBBubbleMessage::resizeEvent(QResizeEvent *event)
     }
 }
 
+/**
+ * 更新发送状态
+ * 是否是发送成功
+ * @brief NBBubbleMessage::setSendStatus
+ */
+void NBBubbleMessage::setSendStatus()
+{
+
+}
+
+/**
+ * 发送与接收消息
+ * @brief NBBubbleMessage::sendMessage
+ * @param sender NBBM::Remote远程发送者消息 NBBM::Local本地发送者消息
+ * @param message 消息内容
+ */
+void NBBubbleMessage::sendMessage(NBBM sender, char* message)
+{
+
+}
 
 
 
