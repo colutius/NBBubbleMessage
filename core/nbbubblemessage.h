@@ -36,7 +36,7 @@ public:
     void setSendStatus(); //发送状态 仅已读功能可用时调用
     void setBackgroundImage(char* imagePath);//设置背景图片
     void resizeEvent(QResizeEvent *event);//大小重置事件
-    //void paintEvent(QPaintEvent *ev);
+    void paintEvent(QPaintEvent *ev);
     void sendMessage(NBBM sender, char* message);//发送与接收消息
 
 private:

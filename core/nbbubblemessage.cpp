@@ -35,6 +35,7 @@ void NBBubbleMessage::messageInit(NBBM nbbm, char* content)
  */
 void NBBubbleMessage::setBackgroundImage(char* imagePath)
 {
+    //TODO 背景图片无法生效
     //this->setStyleSheet("");
     this->backgroundImagePath = imagePath;
     backgroundImage.load(imagePath);
@@ -74,6 +75,12 @@ void NBBubbleMessage::setSendStatus()
 void NBBubbleMessage::sendMessage(NBBM sender, char* message)
 {
 
+}
+
+void NBBubbleMessage::paintEvent(QPaintEvent *ev)
+{
+    QPainter painter(this);
+    painter.drawLine(0, 0, 100, 100);
 }
 
 
