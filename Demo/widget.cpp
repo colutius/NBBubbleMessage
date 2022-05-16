@@ -6,6 +6,8 @@ Widget::Widget(QWidget *parent)
     , ui(new Ui::Widget)
 {
     ui->setupUi(this);
+    message = new NBBubbleMessage;
+    ui->layout->addWidget(message);
 }
 
 Widget::~Widget()

@@ -14,6 +14,8 @@ class NBBubbleMessage : public QWidget
 public:
     explicit NBBubbleMessage(QWidget *parent = nullptr);
 
+    void messageInit();//初始化界面
+
 signals:
 
 };

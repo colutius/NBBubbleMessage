@@ -13,6 +13,11 @@
   <property name="windowTitle">
    <string>Widget</string>
   </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QVBoxLayout" name="layout"/>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

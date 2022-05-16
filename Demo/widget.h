@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include "core/nbbubblemessage.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
@@ -17,5 +19,6 @@ public:
 
 private:
     Ui::Widget *ui;
+    NBBubbleMessage *message;
 };
 #endif // WIDGET_H
