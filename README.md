@@ -27,3 +27,9 @@
  - [ ] 撤回功能 :rainbow: 
  - [ ] 时间显示 :date: 
  - [ ] 超链接读取 :heart: 
+
+## 截图
+
+## 致谢
+
+感谢 竹哥[@justforlxz ](https://github.com/justforlxz) 对框架的指点、辛巳流火 [@ambition-echo](https://github.com/ambition-echo) 对GitHub使用提供帮助

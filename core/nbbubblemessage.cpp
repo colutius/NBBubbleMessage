@@ -39,3 +39,14 @@ void NBBubbleMessage::setBackgroundImage(char *imagePath)
     emit imagePathSignal(imagePath);
     qDebug() << "setBackgroundImage:" << imagePath;
 }
+
+/**
+ * 消息发送以及主要气泡绘制
+ * @brief NBBubbleMessage::sendMessage
+ * @param sender
+ * @param text
+ */
+void NBBubbleMessage::sendMessage(NB sender, char *text)
+{
+
+}
