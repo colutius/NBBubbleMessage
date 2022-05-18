@@ -11,6 +11,7 @@
 #include <QDebug>
 #include <QPainter>
 #include <QPaintEvent>
+#include <QFile>
 
 enum NB
 {

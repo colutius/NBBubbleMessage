@@ -37,4 +37,5 @@ void NBBubbleMessage::paintEvent(QPaintEvent *ev)
 void NBBubbleMessage::setBackgroundImage(char *imagePath)
 {
     emit imagePathSignal(imagePath);
+    qDebug() << "setBackgroundImage:" << imagePath;
 }
