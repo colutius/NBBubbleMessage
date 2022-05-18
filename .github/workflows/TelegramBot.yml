@@ -16,7 +16,11 @@ jobs:
           chatid: ${{ secrets.TELEGRAM_TO }}
           message: |
             👇新的提交👇
+            
             👤提交人: [${{ github.actor }}]
+            
             📄提交信息: ${{ github.event.commits[0].message }}
+            
             📦仓库: ${{ github.repository }}
+            
             🗓每日一言: ${{ env.YIYAN }}
